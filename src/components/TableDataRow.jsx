@@ -18,7 +18,6 @@ class TableDataRow extends Component {
         let user = this.props;
         return(
             <tr>
-                <td>1</td>
                 <td>{user.name}</td>
                 <td>{user.phone}</td>
                 <td>{user.age}</td>

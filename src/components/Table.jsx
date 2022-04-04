@@ -10,7 +10,6 @@ class Table extends Component {
             <table className='table' border="1">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Name</th>
                         <th>Phone no</th>
                         <th>Age</th>

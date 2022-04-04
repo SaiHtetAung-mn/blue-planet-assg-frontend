@@ -1,8 +1,10 @@
 :root {
-    --primary-color: #00008b;
+    --primary-color: #009879;
     --warning-color: #d9534f;
     --warning-background-color: #f8d7da;
     --info-color: #5bc0de;
+    --success-bg-color: #d4edda;
+    --success-color: #5cb85c;
 }
 
 * {
@@ -41,6 +43,8 @@ html, body {
 .wrapper {
     flex-grow: 100;
     display: flex;
+    max-height: fit-content;
+    overflow: auto;
     flex-direction: column;
     background-color: white;
     border-radius: 5px;
@@ -121,6 +125,7 @@ html, body {
 .table-wrapper {
     width: 100%;
     flex-grow: 100;
+    max-height: fit-content;
     overflow: auto;
 }
 
@@ -128,13 +133,14 @@ html, body {
     border-collapse: collapse;
     table-layout: auto;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 th {
     padding: 7px 5px;
     background-color: var(--primary-color);
     color: white;
+    text-align: left;
 }
 
 td {
@@ -147,6 +153,10 @@ tr:hover {
 
 tr:last-child {
     border-bottom: 2px solid var(--primary-color);
+}
+
+tr:nth-of-type(even) {
+    background-color: whitesmoke;
 }
 
 .modal-wrapper {
@@ -237,19 +247,40 @@ tr:last-child {
     color: var(--warning-color);
 }
 
-.flash-message-wrapper {
-    position: fixed;
-    z-index: 11;
-    top: 0;
+.refresh {
+    font-size: 50%;
+    margin-left: 20px;
+    background-color: var(--info-color);
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 2px;
+}
+
+.refresh:active {
+    opacity: .7;
+}
+
+.flash-msg-wrapper {
     width: 100%;
-    padding: 10px;
-    height: 50px;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: -100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+}
+
+.success-flash-msg {
+    background-color: var(--success-bg-color);
+    color: var(--success-color);
+}
+
+.warning-flash-msg {
     background-color: var(--warning-background-color);
     color: var(--warning-color);
-    transition: all .3s linear;
 }
 
 @keyframes modal-open-animation {

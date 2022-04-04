@@ -40,6 +40,10 @@ class EditUser extends Component {
     }
 
     updateUser = () => {
+        if(!this.state.name || !this.state.phone || !this.state.age || !this.state.city || !this.state.address) {
+            this.context.openFlashMessage("All fields are required", "error");
+            return;
+        }
         this.context.updateUser(
             this.state.id,
             this.state.name,
