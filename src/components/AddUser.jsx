@@ -20,6 +20,11 @@ class AddUser extends Component {
         let city = this.cityRef.current.value;
         let address = this.addressRef.current.value;
 
+        if(!Number.isInteger(Number(age))) {
+            this.context.openFlashMessage("Age must be number");
+            return;
+        }
+
         if(!name || !phone || !age || !city || !address) {
             this.context.openFlashMessage("All fields are required", "error");
             return;
